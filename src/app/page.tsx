@@ -14,18 +14,27 @@ export default async function HomePage() {
       <section className='grid grid-cols-1 gap-8 mb-16 sm:grid-cols-2 group'>
         <Link className='w-full h-full overflow-hidden rounded-xl' href='#'>
           <Image
-            className='group-hover:scale-105 transition'
+            className='w-full h-full object-cover object-center group-hover:scale-105 transition'
             src='/images/bryen_0.png'
             width={1200}
             height={720}
             alt='Título do post'
+            priority // quando aparecer na primeira dobra da pagina, o next vai carregar ela com prioridade
           />
         </Link>
-        <div>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. In velit
-          dolorem est dolor porro, doloribus neque, quidem mollitia doloremque,
-          ad perspiciatis fugiat. Rerum, vel ex? Impedit ullam harum blanditiis
-          mollitia?
+        <div className='flex flex-col gap-4 justify-center'>
+          <h1 className='text-2xl/tight font-extrabold sm:text-4xl '>
+            <Link href='#'>Titulo do post abaixo</Link>
+          </h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. In velit
+            dolorem est dolor porro, doloribus neque, quidem mollitia
+            doloremque, ad perspiciatis fugiat. Rerum, vel ex? Impedit ullam
+            harum blanditiis mollitia?
+          </p>
+          <time className='text-slate-600 text-sm/tight' dateTime='2026-05-21'>
+            21/05/2026 10:00
+          </time>
         </div>
       </section>
 
