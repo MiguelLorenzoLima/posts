@@ -1,31 +1,33 @@
 import { Container } from '@/components/container';
+import { Header } from '@/components/Header';
 import { PostsList } from '@/components/PostsList/index';
 import { SpinLoader } from '@/components/SpinLoader';
+import Link from 'next/link';
+import Image from 'next/image';
 import { Suspense } from 'react';
 
 export default async function HomePage() {
   return (
     <Container>
-      <header>
-        <h1 className='text-6xl font-bold text-center py-8'>Liluiaaaa</h1>
-        <p className='text-justify'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum,
-          praesentium possimus veniam nisi totam repellat ut obcaecati,
-          consequuntur error explicabo impedit rem necessitatibus autem dolores.
-          Laudantium deleniti iste nulla veritatis? Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Laborum, praesentium possimus veniam
-          nisi totam repellat ut obcaecati, consequuntur error explicabo impedit
-          rem necessitatibus autem dolores. Laudantium deleniti iste nulla
-          veritatis? Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Laborum, praesentium possimus veniam nisi totam repellat ut obcaecati,
-          consequuntur error explicabo impedit rem necessitatibus autem dolores.
-          Laudantium deleniti iste nulla veritatis? Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Laborum, praesentium possimus veniam
-          nisi totam repellat ut obcaecati, consequuntur error explicabo impedit
-          rem necessitatibus autem dolores. Laudantium deleniti iste nulla
-          veritatis?
-        </p>
-      </header>
+      <Header />
+
+      <section className='grid grid-cols-1 gap-8 mb-16 sm:grid-cols-2 group'>
+        <Link className='w-full h-full overflow-hidden rounded-xl' href='#'>
+          <Image
+            className='group-hover:scale-105 transition'
+            src='/images/bryen_0.png'
+            width={1200}
+            height={720}
+            alt='Título do post'
+          />
+        </Link>
+        <div>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. In velit
+          dolorem est dolor porro, doloribus neque, quidem mollitia doloremque,
+          ad perspiciatis fugiat. Rerum, vel ex? Impedit ullam harum blanditiis
+          mollitia?
+        </div>
+      </section>
 
       <Suspense fallback={<SpinLoader />}>
         <PostsList />
