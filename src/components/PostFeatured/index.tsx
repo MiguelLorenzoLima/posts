@@ -1,5 +1,5 @@
-import { PostHeading } from '@/components/PostHeading';
 import { PostCoverImage } from '@/components/PostCoverImage';
+import { PostSummary } from '../PostSummary';
 
 export function PostFeatured() {
   const slug = 'harum-blanditiis-mollitia';
@@ -20,21 +20,13 @@ export function PostFeatured() {
         }}
       />
 
-      <div className='flex flex-col gap-4 justify-center'>
-        <PostHeading as='h1' url={postLink}>
-          harum blanditiis mollitia?
-        </PostHeading>
-
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. In velit
-          dolorem est dolor porro, doloribus neque, quidem mollitia doloremque,
-          ad perspiciatis fugiat. Rerum, vel ex? Impedit ullam harum blanditiis
-          mollitia?
-        </p>
-        <time className='text-slate-600 text-sm/tight' dateTime='2026-05-21'>
-          21/05/2026 10:00
-        </time>
-      </div>
+      <PostSummary
+        postHeading='h1'
+        postLink={postLink}
+        createdAt='2026-05-21T10:00:00Z'
+        title='harum blanditiis mollitia?'
+        excerpt='Lorem ipsum dolor sit amet consectetur adipisicing elit. In velit dolorem est dolor porro, doloribus neque, quidem mollitia doloremque, ad perspiciatis fugiat. Rerum, vel ex? Impedit ullam harum blanditiis mollitia?'
+      />
     </section>
   );
 }
