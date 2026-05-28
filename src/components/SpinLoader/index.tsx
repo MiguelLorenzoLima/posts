@@ -15,6 +15,8 @@ export function SpinLoader({ className = '' }: SpinLoaderProps) {
           'h-10.5',
           'border-4',
           'border-transparent',
+          'mb-26',
+          'mt-26',
           'text-blue-900',
           'text-4xl',
           'animate-spin',
