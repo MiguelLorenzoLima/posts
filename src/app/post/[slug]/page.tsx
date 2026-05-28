@@ -1,4 +1,6 @@
+import { findPostBySlugCached } from '@/lib/post/queries';
 import clsx from 'clsx';
+import { notFound } from 'next/navigation';
 
 type PostSlugPageProps = {
   params: Promise<{ slug: string }>;
@@ -6,6 +8,17 @@ type PostSlugPageProps = {
 
 export default async function PostSlugPage({ params }: PostSlugPageProps) {
   const { slug } = await params;
+
+  let post;
+
+  try {
+    post = await findPostBySlugCached(slug);
+  } catch {
+    post = undefined;
+  }
+
+  if (!post) notFound();
+
   return (
     <div
       className={clsx(
@@ -15,7 +28,7 @@ export default async function PostSlugPage({ params }: PostSlugPageProps) {
         'text-center',
       )}
     >
-      <h1 className='text-7xl font-extrabold py-16'>Post Page{slug}</h1>
+      <p className='text-7xl font-extrabold py-16'>{post.slug}</p>
     </div>
   );
 }
