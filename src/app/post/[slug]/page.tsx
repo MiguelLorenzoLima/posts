@@ -1,6 +1,11 @@
 import clsx from 'clsx';
 
-export default function NotFoundPage() {
+type PostSlugPageProps = {
+  params: Promise<{ slug: string }>;
+};
+
+export default async function PostSlugPage({ params }: PostSlugPageProps) {
+  const { slug } = await params;
   return (
     <div
       className={clsx(
@@ -10,10 +15,7 @@ export default function NotFoundPage() {
         'text-center',
       )}
     >
-      <div>
-        <h1 className='text-8xl/tight mb-4 font-extrabold '>404</h1>
-        <p className='text-2xl'>Page not found - This Page Does Not Exist</p>
-      </div>
+      <h1 className='text-7xl font-extrabold py-16'>Post Page{slug}</h1>
     </div>
   );
 }
