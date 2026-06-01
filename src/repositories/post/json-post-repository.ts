@@ -13,7 +13,7 @@ const JSON_POSTS_FILE_PATH = resolve(
   'posts.json',
 );
 
-const SIMULATE_WAIT_IN_MS = 3000; // simular um tempo de espera para ler o arquivo do disco
+const SIMULATE_WAIT_IN_MS = 0; // simular um tempo de espera para ler o arquivo do disco
 
 export class JsonPostRepository implements PostRepository {
   private async simulateWait() {
