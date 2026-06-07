@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import { PostHeading } from '../PostHeading';
 import { PostDate } from '../PostDate';
+import { SafeMarkdown } from '../SafeMarkedown';
 
 type SinglePostProps = {
   slug: string;
@@ -38,7 +39,7 @@ export default async function SinglePost({ slug }: SinglePostProps) {
           {post.author} | <PostDate dateTime={post.createdAt} />
         </p>
       </header>
-      <div className='text-xl'>{post.content}</div>
+      <SafeMarkdown markedown={post.content} />
     </article>
   );
 }
